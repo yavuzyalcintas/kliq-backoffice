@@ -1,0 +1,87 @@
+{
+  "common": {
+    "welcome": "Hoş Geldiniz",
+    "login": "Giriş Yap",
+    "logout": "Çıkış Yap",
+    "settings": "Ayarlar",
+    "profile": "Profil",
+    "save": "Kaydet",
+    "cancel": "İptal",
+    "delete": "Sil",
+    "edit": "Düzenle",
+    "create": "Oluştur",
+    "search": "Ara",
+    "loading": "Yükleniyor...",
+    "error": "Bir hata oluştu",
+    "success": "Başarılı"
+  },
+  "auth": {
+    "email": "E-posta",
+    "password": "Şifre",
+    "forgotPassword": "Şifremi Unuttum?",
+    "rememberMe": "Beni Hatırla",
+    "signIn": "Giriş Yap",
+    "signUp": "Kayıt Ol"
+  },
+  "validation": {
+    "required": "{{field}} alanı zorunludur",
+    "invalidEmail": "Geçersiz e-posta adresi",
+    "minLength": "{{field}} en az {{min}} karakter olmalıdır",
+    "maxLength": "{{field}} en fazla {{max}} karakter olmalıdır"
+  },
+  "navigation": {
+    "dashboard": "Gösterge Paneli",
+    "customers": "Müşteriler",
+    "users": "Kullanıcılar",
+    "analytics": "Analitik",
+    "settings": "Ayarlar"
+  },
+  "dashboard": {
+    "title": "Gösterge Paneli",
+    "authenticated": "Kimlik Doğrulandı"
+  },
+  "customers": {
+    "title": "Müşteriler",
+    "list": "Müşteri Listesi",
+    "add": "Müşteri Ekle",
+    "edit": "Müşteri Düzenle",
+    "delete": "Müşteri Sil",
+    "name": "Ad",
+    "email": "E-posta",
+    "phone": "Telefon",
+    "status": "Durum",
+    "actions": "İşlemler"
+  },
+  "users": {
+    "title": "Kullanıcılar",
+    "list": "Kullanıcı Listesi",
+    "add": "Kullanıcı Ekle",
+    "edit": "Kullanıcı Düzenle",
+    "delete": "Kullanıcı Sil",
+    "name": "Ad",
+    "email": "E-posta",
+    "role": "Rol",
+    "status": "Durum",
+    "actions": "İşlemler"
+  },
+  "analytics": {
+    "title": "Analitik",
+    "overview": "Genel Bakış",
+    "reports": "Raporlar",
+    "statistics": "İstatistikler"
+  },
+  "settings": {
+    "title": "Ayarlar",
+    "general": "Genel Ayarlar",
+    "account": "Hesap Ayarları",
+    "preferences": "Tercihler",
+    "notifications": "Bildirimler",
+    "security": "Güvenlik"
+  },
+  "errors": {
+    "loadingUserInfo": "Kullanıcı bilgileri yüklenirken hata oluştu",
+    "unauthorized": "Yetkisiz erişim",
+    "notFound": "Sayfa bulunamadı",
+    "serverError": "Sunucu hatası"
+  }
+} 

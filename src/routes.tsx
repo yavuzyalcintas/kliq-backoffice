@@ -1,24 +1,68 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CustomersList } from "@/components/customers/CustomersList";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
+import { useTranslation } from "react-i18next";
+
+const Dashboard = () => {
+  const { t } = useTranslation();
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>{t("dashboard.title")}</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="rounded-lg border p-4">
+          <pre className="text-sm">
+            {JSON.stringify({ [t("dashboard.authenticated")]: true }, null, 2)}
+          </pre>
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
+
+const Users = () => {
+  const { t } = useTranslation();
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>{t("users.title")}</CardTitle>
+      </CardHeader>
+      <CardContent>{t("users.list")}</CardContent>
+    </Card>
+  );
+};
+
+const Analytics = () => {
+  const { t } = useTranslation();
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>{t("analytics.title")}</CardTitle>
+      </CardHeader>
+      <CardContent>{t("analytics.overview")}</CardContent>
+    </Card>
+  );
+};
+
+const Settings = () => {
+  const { t } = useTranslation();
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>{t("settings.title")}</CardTitle>
+      </CardHeader>
+      <CardContent>{t("settings.general")}</CardContent>
+    </Card>
+  );
+};
 
 export const routes = [
   {
     path: "/",
     element: (
       <ProtectedRoute>
-        <Card>
-          <CardHeader>
-            <CardTitle>Dashboard</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="rounded-lg border p-4">
-              <pre className="text-sm">
-                {JSON.stringify({ authenticated: true }, null, 2)}
-              </pre>
-            </div>
-          </CardContent>
-        </Card>
+        <Dashboard />
       </ProtectedRoute>
     ),
   },
@@ -37,12 +81,7 @@ export const routes = [
         requiredRoles={["admin", "user_management"]}
         requireAllRoles={false}
       >
-        <Card>
-          <CardHeader>
-            <CardTitle>Users</CardTitle>
-          </CardHeader>
-          <CardContent>Users content goes here</CardContent>
-        </Card>
+        <Users />
       </ProtectedRoute>
     ),
   },
@@ -50,12 +89,7 @@ export const routes = [
     path: "/analytics",
     element: (
       <ProtectedRoute requiredRoles={["analytics_view"]}>
-        <Card>
-          <CardHeader>
-            <CardTitle>Analytics</CardTitle>
-          </CardHeader>
-          <CardContent>Analytics content goes here</CardContent>
-        </Card>
+        <Analytics />
       </ProtectedRoute>
     ),
   },
@@ -63,12 +97,7 @@ export const routes = [
     path: "/settings",
     element: (
       <ProtectedRoute requiredRoles={["admin"]}>
-        <Card>
-          <CardHeader>
-            <CardTitle>Settings</CardTitle>
-          </CardHeader>
-          <CardContent>Settings content goes here</CardContent>
-        </Card>
+        <Settings />
       </ProtectedRoute>
     ),
   },

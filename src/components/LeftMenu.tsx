@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Link, useLocation } from "react-router-dom";
 import { Home, UserCircle, Users, BarChart, Settings } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 interface LeftMenuProps {
   className?: string;
@@ -10,30 +11,31 @@ interface LeftMenuProps {
 
 export function LeftMenu({ className }: LeftMenuProps) {
   const location = useLocation();
+  const { t } = useTranslation();
 
   const menuItems = [
     {
-      title: "Dashboard",
+      title: t("navigation.dashboard"),
       icon: Home,
       href: "/",
     },
     {
-      title: "Customers",
+      title: t("navigation.customers"),
       icon: UserCircle,
       href: "/customers",
     },
     {
-      title: "Users",
+      title: t("navigation.users"),
       icon: Users,
       href: "/users",
     },
     {
-      title: "Analytics",
+      title: t("navigation.analytics"),
       icon: BarChart,
       href: "/analytics",
     },
     {
-      title: "Settings",
+      title: t("navigation.settings"),
       icon: Settings,
       href: "/settings",
     },
@@ -48,7 +50,7 @@ export function LeftMenu({ className }: LeftMenuProps) {
     >
       <div className="h-full py-4">
         <div className="h-full px-3">
-          <ScrollArea className="h-full px-2">
+          <ScrollArea className="h-full">
             <div className="space-y-1">
               {menuItems.map((item) => (
                 <Button
