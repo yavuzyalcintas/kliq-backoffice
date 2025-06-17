@@ -1,8 +1,8 @@
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Home, Users, Settings, BarChart } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import { Home, UserCircle, Users, BarChart, Settings } from "lucide-react";
 
 interface LeftMenuProps {
   className?: string;
@@ -16,6 +16,11 @@ export function LeftMenu({ className }: LeftMenuProps) {
       title: "Dashboard",
       icon: Home,
       href: "/",
+    },
+    {
+      title: "Customers",
+      icon: UserCircle,
+      href: "/customers",
     },
     {
       title: "Users",
@@ -35,13 +40,15 @@ export function LeftMenu({ className }: LeftMenuProps) {
   ];
 
   return (
-    <div className={cn("pb-12 w-64 border-r", className)}>
-      <div className="space-y-4 py-4">
-        <div className="px-3 py-2">
-          <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
-            Navigation
-          </h2>
-          <ScrollArea className="h-[300px] px-2">
+    <div
+      className={cn(
+        "h-[calc(100vh-4rem)] w-64 border-r border-primary/10 bg-background/95",
+        className
+      )}
+    >
+      <div className="h-full py-4">
+        <div className="h-full px-3">
+          <ScrollArea className="h-full px-2">
             <div className="space-y-1">
               {menuItems.map((item) => (
                 <Button
@@ -49,11 +56,23 @@ export function LeftMenu({ className }: LeftMenuProps) {
                   variant={
                     location.pathname === item.href ? "secondary" : "ghost"
                   }
-                  className="w-full justify-start"
+                  className={cn(
+                    "w-full justify-start transition-colors",
+                    location.pathname === item.href
+                      ? "bg-primary/10 text-primary hover:bg-primary/20"
+                      : "hover:bg-primary/5 hover:text-primary"
+                  )}
                   asChild
                 >
                   <Link to={item.href}>
-                    <item.icon className="mr-2 h-4 w-4" />
+                    <item.icon
+                      className={cn(
+                        "mr-2 h-4 w-4",
+                        location.pathname === item.href
+                          ? "text-primary"
+                          : "text-muted-foreground group-hover:text-primary"
+                      )}
+                    />
                     {item.title}
                   </Link>
                 </Button>
