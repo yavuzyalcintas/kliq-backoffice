@@ -34,17 +34,24 @@ const AppContent = () => {
       try {
         console.log("Initializing Keycloak...");
         const authenticated = await keycloak.init({
-          onLoad: "check-sso",
-          silentCheckSsoRedirectUri:
-            window.location.origin + "/silent-check-sso.html",
+          onLoad: "login-required",
           pkceMethod: "S256",
           checkLoginIframe: false,
         });
         console.log("Keycloak initialized:", authenticated);
         setAuthenticated(authenticated);
         setIsInitialized(true);
+
+        // Set up token refresh
+        setInterval(() => {
+          keycloak.updateToken(70).catch((error) => {
+            console.error("Failed to refresh token:", error);
+            setAuthenticated(false);
+          });
+        }, 60000); // Check every minute
       } catch (error) {
         console.error("Failed to initialize Keycloak:", error);
+        setAuthenticated(false);
         setIsInitialized(true);
       }
     };
