@@ -1,11 +1,11 @@
-import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Search, X } from "lucide-react";
-import { customerService } from "@/services/customerService";
-import { DataTable } from "@/components/ui/data-table";
-import type { Column } from "@/components/ui/data-table";
+import { useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { Search, X } from 'lucide-react';
+import { customerService } from '@/services/customerService';
+import { DataTable } from '@/components/ui/data-table';
+import type { Column } from '@/components/ui/data-table';
 
 interface Customer {
   id: string;
@@ -13,17 +13,17 @@ interface Customer {
   name: string;
   email: string;
   phone: string;
-  status: "active" | "inactive";
+  status: 'active' | 'inactive';
 }
 
 export function CustomersList() {
   const [filters, setFilters] = useState({
-    kliqId: "",
-    phone: "",
+    kliqId: '',
+    phone: '',
   });
 
   const { data: customers, isLoading } = useQuery({
-    queryKey: ["customers", filters],
+    queryKey: ['customers', filters],
     queryFn: () => {
       const hasFilters = filters.kliqId || filters.phone;
       return hasFilters
@@ -32,45 +32,45 @@ export function CustomersList() {
     },
   });
 
-  const handleFilterChange = (key: "kliqId" | "phone", value: string) => {
-    setFilters((prev) => ({ ...prev, [key]: value }));
+  const handleFilterChange = (key: 'kliqId' | 'phone', value: string) => {
+    setFilters(prev => ({ ...prev, [key]: value }));
   };
 
   const clearFilters = () => {
-    setFilters({ kliqId: "", phone: "" });
+    setFilters({ kliqId: '', phone: '' });
   };
 
   const hasActiveFilters = filters.kliqId || filters.phone;
 
   const columns: Column<Customer>[] = [
     {
-      header: "KliqId",
-      accessorKey: "accountNumber",
-      cell: (customer) => (
+      header: 'KliqId',
+      accessorKey: 'accountNumber',
+      cell: customer => (
         <span className="font-medium">{customer.accountNumber}</span>
       ),
     },
     {
-      header: "Name",
-      accessorKey: "name",
+      header: 'Name',
+      accessorKey: 'name',
     },
     {
-      header: "Email",
-      accessorKey: "email",
+      header: 'Email',
+      accessorKey: 'email',
     },
     {
-      header: "Phone",
-      accessorKey: "phone",
+      header: 'Phone',
+      accessorKey: 'phone',
     },
     {
-      header: "Status",
-      accessorKey: "status",
-      cell: (customer) => (
+      header: 'Status',
+      accessorKey: 'status',
+      cell: customer => (
         <span
           className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-            customer.status === "active"
-              ? "bg-green-100 text-green-800"
-              : "bg-red-100 text-red-800"
+            customer.status === 'active'
+              ? 'bg-green-100 text-green-800'
+              : 'bg-red-100 text-red-800'
           }`}
         >
           {customer.status}
@@ -78,8 +78,8 @@ export function CustomersList() {
       ),
     },
     {
-      header: "Actions",
-      accessorKey: "id",
+      header: 'Actions',
+      accessorKey: 'id',
       cell: () => (
         <div className="text-right">
           <Button variant="ghost" size="sm">
@@ -107,7 +107,7 @@ export function CustomersList() {
                 placeholder="Search by KliqId..."
                 className="pl-8"
                 value={filters.kliqId}
-                onChange={(e) => handleFilterChange("kliqId", e.target.value)}
+                onChange={e => handleFilterChange('kliqId', e.target.value)}
               />
             </div>
           </div>
@@ -121,7 +121,7 @@ export function CustomersList() {
                 placeholder="Search by phone number..."
                 className="pl-8"
                 value={filters.phone}
-                onChange={(e) => handleFilterChange("phone", e.target.value)}
+                onChange={e => handleFilterChange('phone', e.target.value)}
               />
             </div>
           </div>

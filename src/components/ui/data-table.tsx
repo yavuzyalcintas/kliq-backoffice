@@ -5,8 +5,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
-import { Loader2 } from "lucide-react";
+} from '@/components/ui/table';
+import { Loader2 } from 'lucide-react';
 
 export interface Column<T> {
   header: string;
@@ -26,15 +26,15 @@ export function DataTable<T>({
   columns,
   data,
   isLoading = false,
-  emptyMessage = "No data found",
-  loadingMessage = "Loading...",
+  emptyMessage = 'No data found',
+  loadingMessage = 'Loading...',
 }: DataTableProps<T>) {
   return (
     <div className="rounded-md border">
       <Table>
         <TableHeader>
           <TableRow>
-            {columns.map((column) => (
+            {columns.map(column => (
               <TableHead key={String(column.accessorKey)}>
                 {column.header}
               </TableHead>
@@ -60,7 +60,7 @@ export function DataTable<T>({
           ) : (
             data.map((item, index) => (
               <TableRow key={index}>
-                {columns.map((column) => (
+                {columns.map(column => (
                   <TableCell key={String(column.accessorKey)}>
                     {column.cell
                       ? column.cell(item)

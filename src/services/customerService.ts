@@ -4,31 +4,31 @@ interface Customer {
   name: string;
   email: string;
   phone: string;
-  status: "active" | "inactive";
+  status: 'active' | 'inactive';
 }
 
 // Mock data
 const mockCustomers: Customer[] = [
   {
-    id: "1",
-    accountNumber: "KLIQ-001",
-    name: "John Doe",
-    email: "john@example.com",
-    phone: "+1234567890",
-    status: "active",
+    id: '1',
+    accountNumber: 'KLIQ-001',
+    name: 'John Doe',
+    email: 'john@example.com',
+    phone: '+1234567890',
+    status: 'active',
   },
   {
-    id: "2",
-    accountNumber: "KLIQ-002",
-    name: "Jane Smith",
-    email: "jane@example.com",
-    phone: "+1987654321",
-    status: "active",
+    id: '2',
+    accountNumber: 'KLIQ-002',
+    name: 'Jane Smith',
+    email: 'jane@example.com',
+    phone: '+1987654321',
+    status: 'active',
   },
 ];
 
 // Simulate API delay
-const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 interface SearchFilters {
   kliqId?: string;
@@ -43,7 +43,7 @@ export const customerService = {
 
   searchCustomers: async (filters: SearchFilters): Promise<Customer[]> => {
     await delay(300); // Simulate network delay
-    return mockCustomers.filter((customer) => {
+    return mockCustomers.filter(customer => {
       const matchesKliqId =
         !filters.kliqId ||
         customer.accountNumber

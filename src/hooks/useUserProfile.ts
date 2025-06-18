@@ -1,16 +1,16 @@
-import { useQuery } from "@tanstack/react-query";
-import { useAuthStore } from "../store/authStore";
-import { getKeycloakInstance } from "../keycloak";
+import { useQuery } from '@tanstack/react-query';
+import { useAuthStore } from '../store/authStore';
+import { getKeycloakInstance } from '../keycloak';
 
 export const useUserProfile = () => {
   const keycloak = getKeycloakInstance();
-  const setUserInfo = useAuthStore((state) => state.setUserInfo);
+  const setUserInfo = useAuthStore(state => state.setUserInfo);
 
   return useQuery({
-    queryKey: ["userProfile"],
+    queryKey: ['userProfile'],
     queryFn: async () => {
       if (!keycloak.authenticated) {
-        throw new Error("Not authenticated");
+        throw new Error('Not authenticated');
       }
 
       try {

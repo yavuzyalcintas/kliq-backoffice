@@ -1,4 +1,4 @@
-import { getKeycloakInstance } from "@/keycloak";
+import { getKeycloakInstance } from '@/keycloak';
 
 export const hasRole = (role: string): boolean => {
   const keycloak = getKeycloakInstance();
@@ -6,11 +6,11 @@ export const hasRole = (role: string): boolean => {
 };
 
 export const hasAnyRole = (roles: string[]): boolean => {
-  return roles.some((role) => hasRole(role));
+  return roles.some(role => hasRole(role));
 };
 
 export const hasAllRoles = (roles: string[]): boolean => {
-  return roles.every((role) => hasRole(role));
+  return roles.every(role => hasRole(role));
 };
 
 export const hasClaim = (claim: string): boolean => {

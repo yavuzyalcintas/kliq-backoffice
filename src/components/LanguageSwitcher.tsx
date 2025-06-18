@@ -1,11 +1,11 @@
-import { useTranslation } from "react-i18next";
-import { Button } from "./ui/button";
+import { useTranslation } from 'react-i18next';
+import { Button } from './ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
+} from './ui/dropdown-menu';
 
 export function LanguageSwitcher() {
   const { i18n } = useTranslation();
@@ -22,10 +22,10 @@ export function LanguageSwitcher() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => changeLanguage("en")}>
+        <DropdownMenuItem onClick={() => changeLanguage('en')}>
           English
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => changeLanguage("tr")}>
+        <DropdownMenuItem onClick={() => changeLanguage('tr')}>
           Türkçe
         </DropdownMenuItem>
       </DropdownMenuContent>

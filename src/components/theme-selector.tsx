@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import * as React from "react";
-import { MoonIcon, SunIcon, MonitorIcon } from "lucide-react";
-import { useTheme } from "next-themes";
+import * as React from 'react';
+import { MoonIcon, SunIcon, MonitorIcon } from 'lucide-react';
+import { useTheme } from 'next-themes';
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from '@/components/ui/dropdown-menu';
 
 export function ThemeSelector() {
   const { theme, setTheme } = useTheme();
@@ -30,32 +30,32 @@ export function ThemeSelector() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-40">
         <DropdownMenuItem
-          onClick={() => setTheme("light")}
+          onClick={() => setTheme('light')}
           className="flex items-center gap-2 cursor-pointer hover:bg-primary/10 hover:text-primary"
         >
           <SunIcon className="size-4" />
           <span>Light</span>
-          {theme === "light" && (
+          {theme === 'light' && (
             <span className="ml-auto text-xs text-primary">Active</span>
           )}
         </DropdownMenuItem>
         <DropdownMenuItem
-          onClick={() => setTheme("dark")}
+          onClick={() => setTheme('dark')}
           className="flex items-center gap-2 cursor-pointer hover:bg-primary/10 hover:text-primary"
         >
           <MoonIcon className="size-4" />
           <span>Dark</span>
-          {theme === "dark" && (
+          {theme === 'dark' && (
             <span className="ml-auto text-xs text-primary">Active</span>
           )}
         </DropdownMenuItem>
         <DropdownMenuItem
-          onClick={() => setTheme("system")}
+          onClick={() => setTheme('system')}
           className="flex items-center gap-2 cursor-pointer hover:bg-primary/10 hover:text-primary"
         >
           <MonitorIcon className="size-4" />
           <span>System</span>
-          {theme === "system" && (
+          {theme === 'system' && (
             <span className="ml-auto text-xs text-primary">Active</span>
           )}
         </DropdownMenuItem>

@@ -1,12 +1,12 @@
-import { useCallback } from "react";
-import { getKeycloakInstance } from "@/keycloak";
+import { useCallback } from 'react';
+import { getKeycloakInstance } from '@/keycloak';
 import {
   hasRole,
   hasAnyRole,
   hasAllRoles,
   hasClaim,
   getClaim,
-} from "@/utils/auth";
+} from '@/utils/auth';
 
 export const useAuth = () => {
   const keycloak = getKeycloakInstance();

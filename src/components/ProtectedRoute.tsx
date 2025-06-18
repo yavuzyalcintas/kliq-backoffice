@@ -1,7 +1,7 @@
-import type { ReactNode } from "react";
-import { Navigate } from "react-router-dom";
-import { getKeycloakInstance } from "@/keycloak";
-import { hasAnyRole, hasAllRoles } from "@/utils/auth";
+import type { ReactNode } from 'react';
+import { Navigate } from 'react-router-dom';
+import { getKeycloakInstance } from '@/keycloak';
+import { hasAnyRole, hasAllRoles } from '@/utils/auth';
 
 interface ProtectedRouteProps {
   children: ReactNode;
@@ -14,7 +14,7 @@ export const ProtectedRoute = ({
   children,
   requiredRoles,
   requireAllRoles = false,
-  fallbackPath = "/",
+  fallbackPath = '/',
 }: ProtectedRouteProps) => {
   const keycloak = getKeycloakInstance();
 

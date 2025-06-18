@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { useAuthStore } from "./store/authStore";
-import { getKeycloakInstance } from "./keycloak";
-import { Loader2 } from "lucide-react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { LeftMenu } from "./components/LeftMenu";
-import { ThemeProvider } from "@/components/theme-provider";
-import { Navbar } from "@/components/navbar";
-import { routes } from "@/routes";
-import "./App.css";
+import { useEffect, useState } from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { useAuthStore } from './store/authStore';
+import { getKeycloakInstance } from './keycloak';
+import { Loader2 } from 'lucide-react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { LeftMenu } from './components/LeftMenu';
+import { ThemeProvider } from '@/components/theme-provider';
+import { Navbar } from '@/components/navbar';
+import { routes } from '@/routes';
+import './App.css';
 
 // Create a client
 const queryClient = new QueryClient({
@@ -29,8 +29,8 @@ const AppContent = () => {
     const initKeycloak = async () => {
       try {
         const authenticated = await keycloak.init({
-          onLoad: "login-required",
-          pkceMethod: "S256",
+          onLoad: 'login-required',
+          pkceMethod: 'S256',
           checkLoginIframe: false,
         });
         setAuthenticated(authenticated);
@@ -38,13 +38,13 @@ const AppContent = () => {
 
         // Set up token refresh
         setInterval(() => {
-          keycloak.updateToken(70).catch((error) => {
-            console.error("Failed to refresh token:", error);
+          keycloak.updateToken(70).catch(error => {
+            console.error('Failed to refresh token:', error);
             setAuthenticated(false);
           });
         }, 60000); // Check every minute
       } catch (error) {
-        console.error("Failed to initialize Keycloak:", error);
+        console.error('Failed to initialize Keycloak:', error);
         setAuthenticated(false);
         setIsInitialized(true);
       }
@@ -77,7 +77,7 @@ const AppContent = () => {
           <LeftMenu />
           <main className="flex-1 p-6">
             <Routes>
-              {routes.map((route) => (
+              {routes.map(route => (
                 <Route
                   key={route.path}
                   path={route.path}

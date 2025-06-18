@@ -1,5 +1,5 @@
-import { create } from "zustand";
-import Keycloak from "keycloak-js";
+import { create } from 'zustand';
+import Keycloak from 'keycloak-js';
 
 interface UserInfo {
   username?: string;
@@ -29,12 +29,12 @@ const initialState = {
   keycloak: null,
 };
 
-export const useAuthStore = create<AuthState>((set) => ({
+export const useAuthStore = create<AuthState>(set => ({
   ...initialState,
-  setKeycloak: (keycloak) => set({ keycloak }),
-  setAuthenticated: (isAuthenticated) => set({ isAuthenticated }),
-  setTokenValid: (isTokenValid) => set({ isTokenValid }),
-  setLoading: (isLoading) => set({ isLoading }),
-  setUserInfo: (userInfo) => set({ userInfo }),
+  setKeycloak: keycloak => set({ keycloak }),
+  setAuthenticated: isAuthenticated => set({ isAuthenticated }),
+  setTokenValid: isTokenValid => set({ isTokenValid }),
+  setLoading: isLoading => set({ isLoading }),
+  setUserInfo: userInfo => set({ userInfo }),
   reset: () => set(initialState),
 }));
