@@ -16,10 +16,8 @@ export function Navbar() {
 
   return (
     <header className="border-b border-primary/10 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
-          Kliq Backoffice
-        </h1>
+      <div className="flex h-20 items-center justify-between px-6">
+        <img src="/logo.png" alt="Kliq" className="h-16 w-auto" />
         <div className="flex items-center gap-4">
           <ThemeSelector />
           <LanguageSwitcher />
