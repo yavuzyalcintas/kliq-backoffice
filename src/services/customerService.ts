@@ -25,6 +25,30 @@ const mockCustomers: Customer[] = [
     phone: '+1987654321',
     status: 'active',
   },
+  {
+    id: '3',
+    accountNumber: 'KLIQ-003',
+    name: 'Michael Johnson',
+    email: 'michael@example.com',
+    phone: '+1555123456',
+    status: 'inactive',
+  },
+  {
+    id: '4',
+    accountNumber: 'KLIQ-004',
+    name: 'Sarah Wilson',
+    email: 'sarah@example.com',
+    phone: '+1555987654',
+    status: 'active',
+  },
+  {
+    id: '5',
+    accountNumber: 'KLIQ-005',
+    name: 'David Brown',
+    email: 'david@example.com',
+    phone: '+1555333444',
+    status: 'active',
+  },
 ];
 
 // Simulate API delay
@@ -39,6 +63,12 @@ export const customerService = {
   getCustomers: async (): Promise<Customer[]> => {
     await delay(500); // Simulate network delay
     return mockCustomers;
+  },
+
+  getCustomerById: async (id: string): Promise<Customer | null> => {
+    await delay(300); // Simulate network delay
+    const customer = mockCustomers.find(c => c.id === id);
+    return customer || null;
   },
 
   searchCustomers: async (filters: SearchFilters): Promise<Customer[]> => {

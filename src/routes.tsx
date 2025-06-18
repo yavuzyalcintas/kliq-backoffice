@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CustomersList } from '@/components/customers/CustomersList';
+import { CustomerDetail } from '@/components/customers/CustomerDetail';
 import { LocalizationManager } from '@/components/localization/LocalizationManager';
 import { ProtectedRoute } from '@/components/ProtectedRoute';
 import { useTranslation } from 'react-i18next';
@@ -48,6 +49,14 @@ export const routes = [
     element: (
       <ProtectedRoute>
         <CustomersList />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/customers/:id',
+    element: (
+      <ProtectedRoute>
+        <CustomerDetail />
       </ProtectedRoute>
     ),
   },

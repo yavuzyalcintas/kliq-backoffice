@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
+import { useNavigate } from 'react-router-dom';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Search, X } from 'lucide-react';
+import { Search, X, Eye } from 'lucide-react';
 import { customerService } from '@/services/customerService';
 import { DataTable } from '@/components/ui/data-table';
 import type { Column } from '@/components/ui/data-table';
@@ -17,6 +18,7 @@ interface Customer {
 }
 
 export function CustomersList() {
+  const navigate = useNavigate();
   const [filters, setFilters] = useState({
     kliqId: '',
     phone: '',
@@ -80,10 +82,16 @@ export function CustomersList() {
     {
       header: 'Actions',
       accessorKey: 'id',
-      cell: () => (
-        <div className="text-right">
-          <Button variant="ghost" size="sm">
-            Edit
+      cell: customer => (
+        <div className="flex items-center gap-2">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => navigate(`/customers/${customer.id}`)}
+            className="h-8 px-2"
+          >
+            <Eye className="h-4 w-4 mr-1" />
+            View Details
           </Button>
         </div>
       ),
