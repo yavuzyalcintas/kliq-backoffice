@@ -2,7 +2,7 @@ import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, UserCircle, Settings } from 'lucide-react';
+import { Home, UserCircle, Settings, Languages } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 interface LeftMenuProps {
@@ -23,6 +23,11 @@ export function LeftMenu({ className }: LeftMenuProps) {
       title: t('navigation.customers'),
       icon: UserCircle,
       href: '/customers',
+    },
+    {
+      title: t('navigation.localization'),
+      icon: Languages,
+      href: '/localization',
     },
     {
       title: t('navigation.settings'),
