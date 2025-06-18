@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CustomersList } from '@/components/customers/CustomersList';
 import { CustomerDetail } from '@/components/customers/CustomerDetail';
 import { LocalizationManager } from '@/components/localization/LocalizationManager';
+import { DigitalPinOrdersPage } from '@/components/digital-pin-orders/DigitalPinOrdersPage';
 import { ProtectedRoute } from '@/components/ProtectedRoute';
 import { useTranslation } from 'react-i18next';
 
@@ -57,6 +58,14 @@ export const routes = [
     element: (
       <ProtectedRoute>
         <CustomerDetail />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/digital-pin-orders',
+    element: (
+      <ProtectedRoute>
+        <DigitalPinOrdersPage />
       </ProtectedRoute>
     ),
   },

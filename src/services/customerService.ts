@@ -297,6 +297,33 @@ export const customerService = {
     );
   },
 
+  getAllDigitalPinOrders: async (): Promise<DigitalPinOrder[]> => {
+    await delay(500);
+    // In a real implementation, this would fetch all digital pin orders from the API
+    const allOrders: DigitalPinOrder[] = [
+      ...mockDigitalPinOrders,
+      {
+        id: 'order-4',
+        customerId: '3',
+        pinCode: '4567-8901-2345',
+        product: 'Premium Card 100$',
+        amount: 100,
+        status: 'failed',
+        createdAt: '2024-06-04T16:45:00Z',
+      },
+      {
+        id: 'order-5',
+        customerId: '2',
+        pinCode: '5678-9012-3456',
+        product: 'Gift Card 75$',
+        amount: 75,
+        status: 'delivered',
+        createdAt: '2024-06-05T11:20:00Z',
+      },
+    ];
+    return allOrders;
+  },
+
   getCustomerStatement: async (
     customerId: string,
     month: number,

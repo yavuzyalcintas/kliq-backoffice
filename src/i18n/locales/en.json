@@ -35,7 +35,8 @@
     "users": "Users",
     "analytics": "Analytics",
     "settings": "Settings",
-    "localization": "Localization"
+    "localization": "Localization",
+    "digitalPinOrders": "Digital Pin Orders"
   },
   "dashboard": {
     "title": "Dashboard",
@@ -52,6 +53,35 @@
     "phone": "Phone",
     "status": "Status",
     "actions": "Actions"
+  },
+  "digitalPinOrders": {
+    "title": "Digital Pin Orders",
+    "description": "Manage and view all digital pin orders across all customers",
+    "filters": "Filters",
+    "orderId": "Order ID",
+    "customerId": "Customer ID",
+    "product": "Product",
+    "pinCode": "Pin Code",
+    "amount": "Amount",
+    "status": "Status",
+    "dateCreated": "Date Created",
+    "dateFrom": "Date From",
+    "dateTo": "Date To",
+    "minAmount": "Min Amount ($)",
+    "maxAmount": "Max Amount ($)",
+    "allStatuses": "All statuses",
+    "delivered": "Delivered",
+    "pending": "Pending",
+    "failed": "Failed",
+    "applyFilters": "Apply Filters",
+    "clearFilters": "Clear Filters",
+    "pickDate": "Pick a date",
+    "searchOrderId": "Search by order ID...",
+    "searchCustomerId": "Search by customer ID...",
+    "searchProduct": "Search by product...",
+    "noOrdersFound": "No digital pin orders found.",
+    "loadingOrders": "Loading digital pin orders...",
+    "resultsCount": "{{filtered}} of {{total}} orders"
   },
   "users": {
     "title": "Users",
