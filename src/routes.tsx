@@ -3,6 +3,7 @@ import { CustomersList } from '@/components/customers/CustomersList';
 import { CustomerDetail } from '@/components/customers/CustomerDetail';
 import { LocalizationManager } from '@/components/localization/LocalizationManager';
 import { DigitalPinOrdersPage } from '@/components/digital-pin-orders/DigitalPinOrdersPage';
+import { DigitalPinProductsPage } from '@/components/digital-pin-products/DigitalPinProductsPage';
 import { ProtectedRoute } from '@/components/ProtectedRoute';
 import { useTranslation } from 'react-i18next';
 
@@ -66,6 +67,14 @@ export const routes = [
     element: (
       <ProtectedRoute>
         <DigitalPinOrdersPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/digital-pin-products',
+    element: (
+      <ProtectedRoute>
+        <DigitalPinProductsPage />
       </ProtectedRoute>
     ),
   },

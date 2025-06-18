@@ -8,6 +8,7 @@ import {
   Settings,
   Languages,
   CreditCard,
+  Package,
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
@@ -34,6 +35,11 @@ export function LeftMenu({ className }: LeftMenuProps) {
       title: t('navigation.digitalPinOrders'),
       icon: CreditCard,
       href: '/digital-pin-orders',
+    },
+    {
+      title: t('navigation.digitalPinProducts'),
+      icon: Package,
+      href: '/digital-pin-products',
     },
     {
       title: t('navigation.localization'),
